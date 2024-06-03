@@ -10,7 +10,7 @@ permissions:
   contents: read
 jobs:
     build-publish-python:
-        runs-on: vigneshs-mac
+        runs-on: ubuntu-latest
         env:
           DOCKER_REPO: 'codeninjas-proj-docker-local'
           IMAGE_NAME: 'my-very-cool-image:${{ github.run_number }}'
