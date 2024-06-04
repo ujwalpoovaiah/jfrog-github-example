@@ -20,7 +20,7 @@ permissions:
   id-token: write
 jobs:
   create-fix-pull-requests:
-    runs-on: vigneshs-mac
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
