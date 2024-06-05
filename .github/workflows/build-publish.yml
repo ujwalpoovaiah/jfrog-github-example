@@ -24,7 +24,7 @@ jobs:
                 JF_URL: https://${{ vars.JF_URL }}/
                 JF_PROJECT: ${{ vars.JF_PROJECT }}
               with:
-                  oidc-provider-name: vigneshs-github
+                  oidc-provider-name: san-git-intergation
 
             - name: Checkout the repository
               uses: actions/checkout@v4
