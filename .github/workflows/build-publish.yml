@@ -87,7 +87,7 @@ jobs:
 
             - name: docker build
               run: |  
-                jf docker build --tag ${{secrets.REGISTRY}}/${{ env.IMAGE_NAME }}-amd64 --platform  linux/amd64
+                jf docker build --tag ${{secrets.REGISTRY}}/${{ env.IMAGE_NAME }}-amd64
                               
                 jf docker push ${{secrets.REGISTRY}}/${{ env.IMAGE_NAME }}-amd64
 
