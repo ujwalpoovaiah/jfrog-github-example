@@ -16,6 +16,10 @@ jobs:
           IMAGE_NAME: 'my-very-cool-image:${{ github.run_number }}'
           JF_URL: https://${{ vars.JF_URL }}/
         steps:
+            - name: Any Name Bash Test Step
+              shell: bash
+              run: |
+                printenv
             # Use the specific setup-cli branch
             - name: Setup JFrog CLI
               uses: jfrog/setup-jfrog-cli@v4
@@ -24,7 +28,7 @@ jobs:
                 JF_URL: https://${{ vars.JF_URL }}/
                 JF_PROJECT: ${{ vars.JF_PROJECT }}
               with:
-                  oidc-provider-name: san-git-intergation
+                  oidc-provider-name: vigneshs-github
 
             - name: Checkout the repository
               uses: actions/checkout@v4
