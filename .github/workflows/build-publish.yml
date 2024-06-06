@@ -29,6 +29,7 @@ jobs:
                 JF_PROJECT: ${{ secrets.JF_PROJECT }}
               with:
                   oidc-provider-name: vigneshs-github
+                  oidc-audience: jfrog-github-oidc
 
             - name: Checkout the repository
               uses: actions/checkout@v4
