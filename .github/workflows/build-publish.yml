@@ -64,15 +64,9 @@ jobs:
             - name: Authenticate Docker
               uses: docker/login-action@v3
               with:
-                registry: 'hts2.jfrog.io'
+                registry: ${{ secrets.JF_URL }}
                 username: ${{ steps.setup-cli.outputs.oidc-user }}
                 password: ${{ steps.setup-cli.outputs.oidc-token }}
-              run: |
-                echo 'registry'
-                echo 'username'
-                echo 'password'
-
-
 
             #- name: Build Docker image
             #  uses: docker/build-push-action@v5
