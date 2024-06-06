@@ -13,7 +13,7 @@ jobs:
         runs-on: ubuntu-latest
         env:
           DOCKER_REPO: 'vigneshs-docker'
-          registry: 'hts2.jfrog.io'
+          registry: ${{ secrets.JF_URL }}
           IMAGE_NAME: 'my-very-cool-image:${{ github.run_number }}'
           JF_URL: https://${{ secrets.JF_URL }}/
         steps:
