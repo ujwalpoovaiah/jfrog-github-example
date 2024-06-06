@@ -87,13 +87,20 @@ jobs:
 
             - name: docker build
               run: |  
-                jf docker build --tag ${{secrets.REGISTRY}}/${{ env.IMAGE_NAME }}-amd64 --platform linux/amd64
-                              
-                jf docker push ${{secrets.REGISTRY}}/${{ env.IMAGE_NAME }}-amd64
+                docker buildx ls
+                jf docker --version
+                jf docker build --tag ${{secrets.REGISTRY}}/${{ env.IMAGE_NAME }} --push .
 
-                jf docker scan ${{secrets.REGISTRY}}/${{ env.IMAGE_NAME }}-arm64                
+            - name: docker scan
+              run: |  
+                 jf docker pull ${{secrets.REGISTRY}}/${{ env.IMAGE_NAME }}
+                 jf docker scan ${{secrets.REGISTRY}}/${{ env.IMAGE_NAME }}                   
 
-            
             - name: publish build info
               run: |
                 jf rt build-publish
+
+            - name: build scan
+              run: |            
+                jf build-scan
+
