@@ -13,6 +13,7 @@ jobs:
         runs-on: ubuntu-latest
         env:
           DOCKER_REPO: 'vigneshs-docker'
+          registry: 'hts2.jfrog.io'
           IMAGE_NAME: 'my-very-cool-image:${{ github.run_number }}'
           JF_URL: https://${{ secrets.JF_URL }}/
         steps:
@@ -61,20 +62,10 @@ jobs:
             #- name: Set up Docker Buildx
             #  uses: docker/setup-buildx-action@v3
 
-            - name: Echo Docker registry password
-              run: |
-                echo "Docker registry password: ${{ steps.setup-cli.outputs.oidc-token }}"
-            - name: Echo Docker registry username
-              run: |
-                echo "Docker registry username: ${{ steps.setup-cli.outputs.oidc-user }}"
-            - name: Echo Docker registry 
-              run: |
-                echo "Docker registry password: ${{ secrets.JF_URL }}"
-
             - name: Authenticate Docker
               uses: docker/login-action@v3
               with:
-                registry: ${{ secrets.JF_URL }}
+                registry: ${{ env.registry }}
                 username: ${{ steps.setup-cli.outputs.oidc-user }}
                 password: ${{ steps.setup-cli.outputs.oidc-token }}
 
