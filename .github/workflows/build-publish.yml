@@ -12,7 +12,7 @@ jobs:
     build-publish-python:
         runs-on: ubuntu-latest
         env:
-          DOCKER_REPO: 'codeninjas-proj-docker-local'
+          DOCKER_REPO: 'vigneshs-docker'
           IMAGE_NAME: 'my-very-cool-image:${{ github.run_number }}'
           JF_URL: https://${{ secrets.JF_URL }}/
         steps:
