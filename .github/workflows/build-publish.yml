@@ -19,7 +19,7 @@ jobs:
             - name: Any Name Bash Test Step
               shell: bash
               run: |
-                printenv
+                echo "$GITHUB_CONTEXT"
             # Use the specific setup-cli branch
             - name: Setup JFrog CLI
               uses: jfrog/setup-jfrog-cli@v4
