@@ -67,6 +67,11 @@ jobs:
                 registry: 'hts2.jfrog.io'
                 username: ${{ steps.setup-cli.outputs.oidc-user }}
                 password: ${{ steps.setup-cli.outputs.oidc-token }}
+              run: |
+                echo 'registry'
+                echo 'username'
+                echo 'password'
+
 
 
             #- name: Build Docker image
