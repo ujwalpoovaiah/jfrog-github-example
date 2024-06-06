@@ -88,11 +88,6 @@ jobs:
                  jf docker pull ${{secrets.REGISTRY}}/${{ env.IMAGE_NAME }}
                  jf docker scan ${{secrets.REGISTRY}}/${{ env.IMAGE_NAME }}                   
 
-            - name: add docker package to build
-              run: |  
-                 echo "${{secrets.REGISTRY}}/${{ env.IMAGE_NAME }}@${{ steps.build.outputs.digest }}" > metadata.json
-                 jf rt build-docker-create ${{ env.DOCKER_REPO }} --image-file metadata.json 
-
             - name: publish build info
               run: |
                 jf rt build-collect-env 
