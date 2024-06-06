@@ -4,7 +4,7 @@ on:
         branches:
 
 permissions:
-  actions: read # for detecting the Github Actions environment.
+  actions: read # for detecting the Github Actions .
   id-token: write # for creating OIDC tokens for signing.
   packages: write # for uploading attestations.
   contents: read
