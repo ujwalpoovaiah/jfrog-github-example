@@ -31,6 +31,7 @@ jobs:
       - uses: jfrog/frogbot@v2
         with:
           oidc-provider-name: vigneshs-github
+          oidc-audience: jfrog-github-oidc
         env:
           # [Mandatory if the two conditions below are met]
           # 1. The project uses npm, yarn 2, NuGet or .NET to download its dependencies
@@ -41,7 +42,7 @@ jobs:
 
           # [Mandatory]
           # JFrog platform URL
-          JF_URL: https://${{ vars.JF_URL }}/
+          JF_URL: https://${{ secrets.JF_URL }}/
 
           # [Mandatory if JF_USER and JF_PASSWORD are not provided]
           # JFrog access token with 'read' permissions on Xray service
@@ -70,4 +71,4 @@ jobs:
           # dependencies from a virtual repository in Artifactory, set the name of of the repository. There's no
           # need to set this value, if it is set in the frogbot-config.yml file.
           # JF_DEPS_REPO: ""
-          JF_PROJECT: ${{ vars.JF_PROJECT }}
+          JF_PROJECT: ${{ secrets.JF_PROJECT }}
