@@ -98,7 +98,7 @@ jobs:
 
             - name: publish build info
               run: |
-                jf rt build-publish ${{ secrets.JF_PROJECT }}
+                jf rt build-publish
 
             - name: build scan
               run: |            
