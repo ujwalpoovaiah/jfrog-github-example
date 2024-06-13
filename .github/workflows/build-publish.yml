@@ -26,7 +26,7 @@ jobs:
               id: setup-cli
               env:
                 JF_URL: https://${{ secrets.JF_URL }}/
-                JF_PROJECT: 'vigneshs'
+                JF_PROJECT: 'ujwal-project'
               with:
                   oidc-provider-name: vigneshs-github
                   oidc-audience: jfrog-github-oidc
